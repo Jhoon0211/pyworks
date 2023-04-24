@@ -56,6 +56,7 @@ t.setheading(270) -> 아래쪽
 
 t.heading() - 현재의 머리 각도
 t.distance() - 거리
+t.write() - 문자 출력
 
 forward(픽셀크기) - 직진
 t.left(각도)
