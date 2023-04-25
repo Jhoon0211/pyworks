@@ -48,6 +48,7 @@ def play():
         x = random.randint(-230, 230)
         y = random.randint(-230, 230)
         tf.goto(x, y)
+
 # 주인공 거북이
 t.shape('turtle')
 t.setup(500, 500) #width, height

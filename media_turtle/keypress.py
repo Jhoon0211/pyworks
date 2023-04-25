@@ -22,7 +22,7 @@ def clear():
 
 
 t.shape('turtle')
-t.color(green)
+t.color('green')
 # 함수 호출시 괄호가 없음 - 주의! Right - 첫글자 대문자(상수)
 t.onkeypress(turn_right, "Right")
 t.onkeypress(turn_up, "Up")
