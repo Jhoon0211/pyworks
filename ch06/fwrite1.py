@@ -5,13 +5,13 @@ try:
     f = open("c:/pyfile/file1.txt", 'w')
 
     # 파일 쓰기
-    f.write('hello\n')  #줄바꿈('\n)
-    f.write('100\n')      # 숫자형은 입력할 수 없음 -> '' 추가하여 문자형으로 변환
+    f.write('hello\n')  # 줄바꿈('\n)
+    f.write('100\n')    # 숫자형은 입력할 수 없음 -> '' 추가 하여 문자형으로 변환
     n = 10 * 2
     f.write(str(n) + '\n')
 
     for i in range(1, 11):
-        text = f'{i}번째 줄입니다.\n'
+        text = f'{i}번째 줄 입니다.\n'
         f.write(text)
 
     print("쓰기 완료")

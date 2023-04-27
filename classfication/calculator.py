@@ -26,3 +26,4 @@ print('뺀 값 :', cal1.sub(4))
 cal2 = Calculator()
 print('더한 값 :', cal2.add(10.1))
 print('뺀 값 :', cal2.sub(2.5))
+
