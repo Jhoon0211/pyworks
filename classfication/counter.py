@@ -1,9 +1,14 @@
 # Counter 클래스 만들기
+# 멤버 변수에 직접 접근하지 않음 - 정보 은닉 (캡슐화)
+# 함수 안에 멤버 변수를 작성
+# 외부에서는 함수에 접근
 
 class Counter:
-    x = 0
+    x = 0  # 클래스 변수
     def __init__(self):
-        Counter.x += 1  # 클래스 변수이므로 클래스로 직접 접근
+        self.x = 0
+        self.x += 1
+        #Counter.x += 1  # 클래스 변수이므로 클래스로 직접 접근
 
     def get_count(self):
         return self.x
