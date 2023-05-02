@@ -15,10 +15,10 @@ class Converter(ScaleConverter):
         # return self.factor * value + self.offset
         return super().convert(value) + self.offset
 
-
-conv = Converter('C', 'F', 1.8, 32)
-print("Converting 20C")
-print(f'{conv.convert(20)} {conv.units_to}')
+if __name__=="__main__":
+    conv = Converter('C', 'F', 1.8, 32)
+    print("Converting 20C")
+    print(f'{conv.convert(20)} {conv.units_to}')
 
 
 """
