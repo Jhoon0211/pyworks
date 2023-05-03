@@ -21,6 +21,18 @@ class App:
             listbox.insert(END, item)
         listbox.grid(row=1, column=1)
 
+        # 레이아웃 - radio 버튼 - 프레임 위에 작성
+        radio_frame = Frame(frame)  # 프레임 생성
+        # 문자 송출 클래스
+        radio_selection = StringVar()
+        b1 = Radiobutton(radio_frame, text='left',
+                         variable=radio_selection, value='L')
+        b1.pack(side=LEFT) #frame에 올라감
+        b2 = Radiobutton(radio_frame, text='right',
+                         variable=radio_selection, value='R')
+        b2.pack(side=RIGHT)
+        radio_frame.grid(row=1, column=2)
+
 root = Tk()
 app = App(root)
 

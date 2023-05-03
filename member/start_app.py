@@ -13,7 +13,7 @@ app.secret_key = "asdfqqewr1234%#@"
 
 # sqlite3와 연동 - 객체 생성
 def getconn():
-    conn = sqlite3.connect("c:/green_project/sqlworks/pydb/member.db")
+    conn = sqlite3.connect("c:/green_project/sqlworks/pydb/mydb.db")
     return conn
 print(getconn())
 
@@ -50,6 +50,8 @@ def register():
         cursor = conn.cursor()
         sql = f"INSERT INTO member(memberid, passwd, name, gender) " \
               f"VALUES('{id}', '{pw}', '{name}', '{gender}')"
+        # 자동 로그인 - 세션 발급
+        session['userid'] = request.form['memberid']
         cursor.execute(sql)  # 검색 수행
         conn.commit()  # 커밋
         conn.close()
