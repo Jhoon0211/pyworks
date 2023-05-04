@@ -11,7 +11,7 @@ first_li = ul.find('li')
 exchange = first_li.find('span', attrs={'class':'blind'})   # 환율의 종류
 print(exchange)
 
-value = first_li.find('span', attrs={'class':'value'})   # 환율의 종류
+value = first_li.find('span', attrs={'class':'value'})   # 환율의 가격
 print(value.text)
 print(exchange.text,':',value.text)
 
