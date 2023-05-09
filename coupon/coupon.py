@@ -28,10 +28,13 @@ def click():
             winner.append(name)  # winner에 추가
 
     output.delete(0.0, END)
-    #output.insert(END, winner)
+    # output.insert(END, winner)
     # str 방식
-    for i in winner:
-        output.insert(END, i + ' ')
+    # for i in winner:
+    #    output.insert(END, i + ' ')
+
+    # 문자열 연결하기 - join()
+    output.insert(END, ' '.join(winner))
 
 # 방식 2)
     """
