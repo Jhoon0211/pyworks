@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기 폼</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="container">
+        {% include 'header.html' %}
+        <!-- 배경 이미지 -->
+        <div id="main-pic">
+            <img src="{{ url_for('static', filename='images/header1.jpg') }}">
+        </div>
+        <section id="writing">
+            <h2>글쓰기</h2>
+
+        </section>
+        {% include 'footer.html' %}
+    </div>
+</body>
+</html>
