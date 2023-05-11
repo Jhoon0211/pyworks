@@ -99,7 +99,7 @@ def logout():
 def boardlist():
     conn = getconn()
     cursor = conn.cursor()
-    sql = "SELECT * FROM board"
+    sql = "SELECT * FROM board ORDER BY createdate DESC"
     cursor.execute(sql)
     boardlist = cursor.fetchall()
     # print(boardlist)
@@ -110,8 +110,55 @@ def boardlist():
     return render_template('boardlist.html', boardlist=boardlist)
 
 # 글쓰기
-@app.route('/writing')
+@app.route('/writing', methods=['GET', 'POST'])
 def writing():
-    return render_template('writing.html')
+    if request.method == 'POST':
+        # 입력된 글, 내용을 가져다 DB에 저장
+        title = request.form['title']
+        content = request.form['content']
+
+        # userid : session 이름을 가져옴
+        memberid = session.get('userid')
+
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"INSERT INTO board(title, content, memberid)" \
+              f"VALUES ('{title}', '{content}', '{memberid}')"
+        # bno와 같은 숫자는 '' 필요없는데 title처럼 글자는 필요함
+        cursor.execute(sql)
+        conn.commit()
+        conn.close()
+
+        # 동작이 마치면 'boardlist'로 이동
+        return redirect(url_for('boardlist'))
+    else:
+        # 탬플릿
+        return render_template('writing.html')
+
+# 글 상세보기 - 게시판 마다 각각의 페이지가 필요하므로 하위경로가 주어져야 함
+# bno는 숫자라 integer 넣어줘야 함
+# 매개변수 bno 설정
+@app.route('/detail/<int:bno>', methods=['GET'])
+def detail(bno):
+    # DB board 테이블에서 bno로 검색된 글 가져오기
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = f"SELECT * FROM board WHERE bno = {bno}"
+    cursor.execute(sql)
+    # 게시글 하나를 가져온다
+    board = cursor.fetchone()
+    return render_template('detail.html', board=board)
+
+# 게시글 삭제
+@app.route('/delete/<int:bno>', methods=['GET'])
+def delete(bno):
+    # 삭제 요청한 글 번호를 DB board 테이블 삭제
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = f"DELETE FROM board WHERE bno = {bno}"  # bno는 숫자이므로 따옴표를 붙이지 않음
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+    return redirect(url_for('boardlist'))
 
 app.run()

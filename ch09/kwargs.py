@@ -17,3 +17,8 @@ def calc_sum(*numbers):
 
 print(calc_sum(1, 53))
 print(calc_sum(1, 53, 547))
+
+9 + 4
+
+125060
+119080

@@ -20,8 +20,8 @@
                 </li>
                 <li><a href="">게시판</a>
                     <ul>
-                        <li><a href="">글목록</a></li>
-                        <li><a href="">글쓰기</a></li>
+                        <li><a href="{{ url_for('boardlist') }}">글목록</a></li>
+                        <li><a href="{{ url_for('writing') }}">글쓰기</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url_for('logout') }}">

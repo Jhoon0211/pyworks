@@ -6,6 +6,7 @@ function checkMember(){
     let pw2 = form.passwd2;
     let name = form.name;
 
+    // 정규표현식
     let pw_pat1 = /[0-9]+/  // 숫자
     let pw_pat2 = /[a-zA-Z]+/  // 영어 대소문자 표현식
     let pw_pat3 = /[~!@#$%^&*()_+]+/  // 특수문자
