@@ -114,8 +114,8 @@ def boardlist():
 def writing():
     if request.method == 'POST':
         # 입력된 글, 내용을 가져다 DB에 저장
-        title = request.form['title']
-        content = request.form['content']
+        title = request.form['title'].replace("'","''")
+        content = request.form['content'].replace("'","''")
 
         # userid : session 이름을 가져옴
         memberid = session.get('userid')
@@ -146,8 +146,16 @@ def detail(bno):
     sql = f"SELECT * FROM board WHERE bno = {bno}"
     cursor.execute(sql)
     # 게시글 하나를 가져온다
-    board = cursor.fetchone()
+    board = cursor.fetchone()   # 게시글 1개 가져옴
+
+    # 조회수 증가
+    hit = board[4]
+    sql = f"UPDATE board SET hit = {hit + 1} WHERE bno = {bno}"
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
     return render_template('detail.html', board=board)
+
 
 # 게시글 삭제
 @app.route('/delete/<int:bno>', methods=['GET'])
@@ -160,5 +168,32 @@ def delete(bno):
     conn.commit()
     conn.close()
     return redirect(url_for('boardlist'))
+
+# 게시글 수정
+@app.route('/update/<int:bno>', methods=['GET', 'POST'])
+def update(bno):
+    if request.method == "POST":
+        # 수정한 제목과 내용을 board 테이블에 저장
+        title = request.form['title'].replace("'","''")
+        content = request.form['content'].replace("'","''")
+
+        # DB에 저장
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"UPDATE board SET title = '{title}', content = '{content}'" \
+              f"WHERE bno = {bno}"
+        cursor.execute(sql)
+        conn.commit()
+        conn.close()
+        return redirect(url_for('detail', bno=bno))  # 상세보기 (글번호)
+    else:
+        # 수정할 글(상세보기)을 DB에서 가져오기
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"SELECT * FROM board WHERE bno = {bno}"
+        cursor.execute(sql)
+        board = cursor.fetchone()   # 게시글 1개 가져오기
+        conn.close()
+        return render_template('update.html', board=board)
 
 app.run()
