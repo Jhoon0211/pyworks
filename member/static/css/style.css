@@ -89,8 +89,9 @@ footer{height: 80px; border-top: 2px solid #222;}
 #writing table{width: 450px; margin: 30px auto;}
 #writing table, td{border: 1px solid #ccc;
     border-collapse: collapse;}
-#writing table input[type='text']{width: 430px; height: 25px;}
-#writing textarea{width: 430px; height: 300px;}
+#writing table input[type='text']{width: 420px; height: 25px; padding: 5px;}
+#writing textarea{width: 420px; height: 300px; padding: 5px;
+        line-height: 1.5; resize: none; font-family: "맑은고딕"}
 #writing table input[type='submit'], input[type='reset']{width: 80px; height: 30px;}
 
 /* detail 스타일 */
@@ -98,8 +99,9 @@ footer{height: 80px; border-top: 2px solid #222;}
 #detail table{width: 450px; margin: 40px auto;}
 #detail table, td{border: 1px solid #ccc;
     border-collapse: collapse;}
-#detail table input[type='text']{width: 430px; height: 25px;}
-#detail textarea{width: 430px; height: 300px;}
+#detail table input[type='text']{width: 420px; height: 25px; padding: 5px;}
+#detail textarea{width: 420px; height: 300px; padding: 5px;
+        line-height: 1.5; resize: none; font-family: "맑은고딕"}
 #detail table button[type='button']{width: 80px; height: 30px;}
 
 /* update 스타일 */
@@ -107,8 +109,9 @@ footer{height: 80px; border-top: 2px solid #222;}
 #update table{width: 450px; margin: 40px auto;}
 #update table, td{border: 1px solid #ccc;
     border-collapse: collapse;}
-#update table input[type='text']{width: 430px; height: 25px;}
-#update textarea{width: 430px; height: 300px;}
+#update table input[type='text']{width: 420px; height: 25px; padding: 5px;}
+#update textarea{width: 420px; height: 300px; padding: 5px;
+        line-height: 1.5; resize: none; font-family: "맑은고딕"}
 #update table input[type='submit'], input[type='reset']{width: 80px; height: 30px;}
 
 /* 태블릿 기준 - 780px 이상 */
@@ -154,8 +157,20 @@ footer{height: 80px; border-top: 2px solid #222;}
     /* writing 스타일 */
     #writing{width: 550px; margin: 40px auto 100px;}
     #writing table{width: 550px; margin: 30px auto;}
-    #writing table input[type='text']{width: 530px; height: 25px;}
-    #writing textarea{width: 530px; height: 350px;}
+    #writing table input[type='text']{width: 520px; height: 25px; padding: 5px;}
+    #writing textarea{width: 520px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
+
+    /* detail 스타일 */
+    #detail{width: 550px; margin: 40px auto 100px;}
+    #detail table{width: 550px; margin: 30px auto;}
+    #detail table input[type='text']{width: 520px; height: 25px; padding: 5px;}
+    #detail textarea{width: 520px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
+
+    /* update 스타일 */
+    #update{width: 550px; margin: 40px auto 100px;}
+    #update table{width: 550px; margin: 30px auto;}
+    #update table input[type='text']{width: 520px; height: 25px; padding: 5px;}
+    #update textarea{width: 520px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
 }
 
 /* PC 기준 - 1100px 이상 */
@@ -204,7 +219,24 @@ footer{height: 80px; border-top: 2px solid #222;}
     /* writing 스타일 */
     #writing{width: 650px; margin: 40px auto 100px;}
     #writing table{width: 650px; margin: 30px auto;}
-    #writing table input[type='text']{width: 630px; height: 25px;}
-    #writing textarea{width: 630px; height: 350px;}
-    #writing table input[type='submit'], input[type='reset']{width: 90px; height: 35px;}
+    #writing table input[type='text']{width: 620px; height: 25px; padding: 5px;}
+    #writing textarea{width: 620px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
+    #writing table input[type='submit']{width: 90px; height: 35px;}
+    #writing table  input[type='reset']{width: 90px; height: 35px;}
+
+    /* detail 스타일 */
+    #detail{width: 650px; margin: 40px auto 100px;}
+    #detail table{width: 650px; margin: 30px auto;}
+    #detail table input[type='text']{width: 620px; height: 25px; padding: 5px;}
+    #detail textarea{width: 620px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
+    #detail table input[type='submit']{width: 90px; height: 35px;}
+    #detail table input[type='reset']{width: 90px; height: 35px;}
+
+    /* update 스타일 */
+    #update{width: 650px; margin: 40px auto 100px;}
+    #update table{width: 650px; margin: 30px auto;}
+    #update table input[type='text']{width: 620px; height: 25px; padding: 5px;}
+    #update textarea{width: 620px; height: 350px; padding: 5px; line-height: 1.5; resize: none;}
+    #update table input[type='submit']{width: 90px; height: 35px;}
+    #update table input[type='reset']{width: 90px; height: 35px;}
 }

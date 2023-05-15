@@ -7,6 +7,9 @@ from flask import Flask, render_template, request, \
 # 데이터 베이스 연결
 import sqlite3
 
+# 시간 연결
+import datetime
+
 app = Flask(__name__)
 
 app.secret_key = "asdfqqewr1234%#@"
@@ -149,7 +152,7 @@ def detail(bno):
     board = cursor.fetchone()   # 게시글 1개 가져옴
 
     # 조회수 증가
-    hit = board[4]
+    hit = board[5]
     sql = f"UPDATE board SET hit = {hit + 1} WHERE bno = {bno}"
     cursor.execute(sql)
     conn.commit()
@@ -176,12 +179,16 @@ def update(bno):
         # 수정한 제목과 내용을 board 테이블에 저장
         title = request.form['title'].replace("'","''")
         content = request.form['content'].replace("'","''")
+        now = datetime.datetime.today()
+        modifydate = now.strftime("%Y-%m"
+                                  "-%d. %H:%M:%S")
 
         # DB에 저장
         conn = getconn()
         cursor = conn.cursor()
-        sql = f"UPDATE board SET title = '{title}', content = '{content}'" \
-              f"WHERE bno = {bno}"
+        # modifydate 삽입 시, '' 넣지 않으면 숫자로 처리되어 오류가 남
+        sql = f"UPDATE board SET title = '{title}', content = '{content}',  " \
+              f"modifydate = '{modifydate}' WHERE bno = {bno}"
         cursor.execute(sql)
         conn.commit()
         conn.close()

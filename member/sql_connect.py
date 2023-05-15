@@ -17,6 +17,7 @@ def create_board():
            title TEXT NOT NULL,
            content TEXT NOT NULL,
            createdate DATETIME DEFAULT(datetime('now', 'localtime')),
+           modifydate DATETIME,
            hit INTEGER DEFAULT 0,
            memberid TEXT NOT NULL,
            FOREIGN KEY(memberid) REFERENCES member(memberid) ON DELETE CASCADE               
@@ -56,11 +57,14 @@ def select_board():
         print(board)
     conn.close()
 
+def modify_date():
+    conn = getconn
+
 # 함수 호출
 #create_board()
 #insert_board()
 #drop_board()
-select_board()
+#select_board()
 
 """
 def select():
@@ -103,7 +107,9 @@ def select_one():
     conn.close()
 """
 
+create_board()
 #select()
 #select_one()
 #insert()
 #update()
+#drop_board()

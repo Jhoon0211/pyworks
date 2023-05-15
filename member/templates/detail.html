@@ -29,8 +29,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="memberid"
-                                   value="글쓴이 : {{ board[5] }}" readonly>
+                            <input type="text" name="memberid" readonly
+                                   value="글쓴이 : {{ board[6] }} {% if board[4] %}( 수정일 : {{ board[4] }})
+                                            {% else %}( 작성일 : {{ board[3] }})
+                                            {% endif %}">
                         </td>
                     </tr>
                     <tr>
@@ -40,7 +42,7 @@
                             </a>
                             <!-- 로그인 사람과 글쓴이가 같으면 '삭제, 수정' 버튼이 보이고,
                                  아니면 보이지 않음 -->
-                            {% if session['userid'] == board[5] %}
+                            {% if session['userid'] == board[6] %}
                             <!-- 수정 버튼 -->
                             <a href="{{ url_for('update', bno=board[0]) }}">
                                 <button type="button">수정</button>
