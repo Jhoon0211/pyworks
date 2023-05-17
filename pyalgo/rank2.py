@@ -1,15 +1,16 @@
 # 순위 정하기
 score = [60, 5, 33, 12, 97, 24]
-rank = [1, 1, 1, 1, 1, 1]
+rank = [0, 0, 0, 0, 0, 0]   # 리스트 요소를 0으로 초기화
 n = len(score)
 print(n)
 
 # 중첩 for문 - 조건문
 for i in range(0, n):
-    count = 1
+    count = 1   # for문 의 지역 변수
     for j in range(0, n):
         if score[i] < score[j]:
-            rank[i] += rank[i]  # 순위 1 증가(순위가 밀림)
+            count += 1
+        rank[i] += rank[i]  # 변경된 count를 rank 리스트에 저장
 
 '''
 i=0 j=0 score[0] < score[0] False rank[0]=1
