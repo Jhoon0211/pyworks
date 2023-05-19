@@ -3,7 +3,7 @@
 # 그 위치를 돌려주고(반환), 못찾으면 -1을 반환 한다.
 
 
-def search_list(a, x):
+def search_list(a, x): # 리스트, 찾는 값
     n = len(a)
     for i in range(0, n):
         if a[i] == x:
