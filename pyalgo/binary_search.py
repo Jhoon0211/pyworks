@@ -28,8 +28,11 @@ def bin_search(a, x):
 
 #d = [1,4,9,16,25,36,49,64,81]
 d = [49, 4, 64, 25, 36, 81, 16, 9, 1]
+
+# 정렬 - 오름차순
 d.sort()
 print(d)
+
 print(bin_search(d, 49)) # 6
 print(bin_search(d, 50)) # -1
 
